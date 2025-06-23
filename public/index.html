@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TriviaPur- All new Trivia Land</title>
+    <link rel="stylesheet" href="./style/output.css">
+
+    <!-- font awesome icons cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- add icon  -->
+    <link rel="shortcut icon" href="./images/logo.png" type="image/png">
+</head>
+
+<body class="relative">
+    <header class="min-h-screen bg-gray-950 text-white flex flex-col">
+        <nav
+            class="flex flex-row items-center justify-content-around bg-gray-900/50 backdrop-blur-xl border-b border-gray-800 fixed top-0 left-0 right-0 z-50 px-5">
+            <!-- logo starts  -->
+            <a href="/" class="flex flex-row items-center">
+                <img src="./images/logo.png" alt="TriviaPur Logo" class="h-16 w-16">
+                <span
+                    class="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                    TriviaPur
+                </span>
+            </a>
+            <!-- logo ends  -->
+
+            <!-- links starts  -->
+            <ul class="ms-auto text-lg text-gray-300 md:flex flex-row gap-8 hidden">
+                <li>
+                    <a href="/" class="hover:text-cyan-400">Home</a>
+                </li>
+                <li>
+                    <a href="/question" class="hover:text-cyan-400">Play</a>
+                </li>
+                <li>
+                    <a href="/leaderboard" class="hover:text-cyan-400">Leaderboard</a>
+                </li>
+            </ul>
+            <!-- links ends  -->
+        </nav>
+
+        <section class="grow flex flex-col items-center justify-center text-center py-20 relative">
+
+            <!-- Background Effects starts  -->
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10"></div>
+            <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+            <!-- Background Effects ends  -->
+
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center max-w-4xl mx-auto">
+
+                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold mb-6">
+                        <span class="bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+                            Test Your
+                        </span>
+                        <br />
+                        <span
+                            class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            Knowledge
+                        </span>
+                    </h1>
+
+                    <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                        Challenge yourself with intelligent trivia questions and compete with players worldwide
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a class="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+                            href="/question">
+                            <i class="fa-solid fa-play mr-2"></i>
+                            Start Playing
+                        </a>
+                        <a href="./images/demo.mov"
+                            class="border border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white px-8 py-4 text-lg rounded-xl transition-all duration-300">
+                            Watch Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <main class="bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950" id="play">
+        <!-- Login/Register Section starts -->
+        <section class="py-20">
+
+            <div class="container mx-auto px-4 z-10">
+                <div class="max-w-md mx-auto">
+                    <div class="text-center mb-8">
+                        <h2
+                            class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4">
+                            Join TriviaPur
+                        </h2>
+                        <p class="text-gray-400">Start your journey to becoming a trivia champion</p>
+                    </div>
+                    <!-- Tabs -->
+                    <div>
+                        <div
+                            class="grid w-full grid-cols-2 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-1 mb-6">
+                            <button id="loginTab"
+                                class="rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 text-white transition-all duration-300 py-2 font-semibold"
+                                onclick="showTab('login')">
+                                Login
+                            </button>
+                            <button id="registerTab"
+                                class="rounded-lg text-gray-300 transition-all duration-300 py-2 font-semibold"
+                                onclick="showTab('register')">
+                                Register
+                            </button>
+                        </div>
+                        <!-- Login Form -->
+                        <div id="loginContent">
+                            <div class="bg-gray-800/50 backdrop-blur-xl border border-gray-700 shadow-2xl rounded-xl">
+                                <div class="text-center p-6 pb-0">
+                                    <div class="text-2xl text-white font-bold mb-1">Welcome Back</div>
+                                    <div class="text-gray-400 mb-4">Sign in to your account to continue your trivia
+                                        adventure</div>
+                                </div>
+                                <form class="space-y-6 p-6 pt-0" id="loginForm">
+                                    <div class="space-y-2">
+                                        <label for="login-username"
+                                            class="text-gray-300 block text-left">Username</label>
+                                        <input id="login-username" type="text" placeholder="Enter your username"
+                                            class="w-full bg-gray-900/50 border border-gray-600 text-white placeholder:text-gray-500 focus:border-cyan-400 focus:ring-cyan-400/20 rounded-lg px-3 py-2 outline-none"
+                                            name="username" required />
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label for="password" class="text-gray-300 block text-left">Password</label>
+                                        <input id="password" type="password" placeholder="Enter your password"
+                                            class="w-full bg-gray-900/50 border border-gray-600 text-white placeholder:text-gray-500 focus:border-cyan-400 focus:ring-cyan-400/20 rounded-lg px-3 py-2 outline-none"
+                                            name="password" required />
+                                    </div>
+                                    <button type="submit"
+                                        class="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white rounded-lg py-3 transition-all duration-300 transform hover:scale-105 font-semibold">
+                                        Sign In
+                                    </button>
+                                    <p class="text-center text-sm text-gray-400">
+                                        <a href="#" class="text-cyan-400 hover:text-cyan-300 transition-colors">Forgot
+                                            password?</a>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Register Form -->
+                        <div id="registerContent" class="hidden">
+                            <div class="bg-gray-800/50 backdrop-blur-xl border border-gray-700 shadow-2xl rounded-xl">
+                                <div class="text-center p-6 pb-0">
+                                    <div class="text-2xl text-white font-bold mb-1">Create Account</div>
+                                    <div class="text-gray-400 mb-4">Join thousands of trivia enthusiasts worldwide</div>
+                                </div>
+                                <form class="space-y-6 p-6 pt-0" id="registerForm">
+                                    <div class="space-y-2">
+                                        <label for="name" class="text-gray-300 block text-left">Name</label>
+                                        <input id="name" type="text" name="name" placeholder="What's your name"
+                                            class="w-full bg-gray-900/50 border border-gray-600 text-white placeholder:text-gray-500 focus:border-cyan-400 focus:ring-cyan-400/20 rounded-lg px-3 py-2 outline-none"
+                                            required />
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="reg-username" class="text-gray-300 block text-left">Username</label>
+                                        <input id="reg-username" type="text" name="username"
+                                            placeholder="Choose a username"
+                                            class="w-full bg-gray-900/50 border border-gray-600 text-white placeholder:text-gray-500 focus:border-cyan-400 focus:ring-cyan-400/20 rounded-lg px-3 py-2 outline-none"
+                                            required />
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label for="reg-password" class="text-gray-300 block text-left">Password</label>
+                                        <input id="reg-password" type="password" placeholder="Create a password"
+                                            class="w-full bg-gray-900/50 border border-gray-600 text-white placeholder:text-gray-500 focus:border-cyan-400 focus:ring-cyan-400/20 rounded-lg px-3 py-2 outline-none"
+                                            name="password" required />
+                                    </div>
+                                    <button type="submit"
+                                        class="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white rounded-lg py-3 transition-all duration-300 transform hover:scale-105 font-semibold">
+                                        Create Account
+                                    </button>
+                                    <p class="text-center text-xs text-gray-500">
+                                        By signing up, you agree to our
+                                        <a href="#" class="text-cyan-400 hover:text-cyan-300">Terms of Service</a>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Login/Register Section ends  -->
+
+        <!-- Modern Features starts  -->
+        <section class="py-20" id="features">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+                    <div
+                        class="bg-gray-900/80 border border-cyan-600/40 hover:border-cyan-400 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-cyan-400/20 rounded-2xl">
+                        <div class="p-8 text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-cyan-500/30 to-purple-500/30 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <!-- Brain SVG Icon -->
+                                <i class="fa-solid fa-brain text-2xl text-cyan-400"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3 text-white">Smart Categories</h3>
+                            <p class="text-gray-300 leading-relaxed">Questions across diverse topics</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-gray-900/80 border border-purple-600/40 hover:border-purple-400 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-purple-400/20 rounded-2xl">
+                        <div class="p-8 text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <!-- Globe Icon -->
+                                <i class="fa-solid fa-earth-asia text-2xl text-purple-400"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3 text-white">Global Community</h3>
+                            <p class="text-gray-300 leading-relaxed">Challenge players from around the world</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-gray-900/80 border border-pink-600/40 hover:border-pink-400 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-pink-400/20 rounded-2xl">
+                        <div class="p-8 text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-pink-500/30 to-cyan-500/30 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <!-- Trophy Icon -->
+                                <i class="fa-solid fa-trophy text-2xl text-pink-400"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3 text-white">Live Rankings</h3>
+                            <p class="text-gray-300 leading-relaxed">Real-time leaderboards and achievements</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- Modern Features ends  -->
+    </main>
+
+    <!-- Footer starts -->
+    <footer class="bg-gray-900 bg-opacity-50 backdrop-blur-xl border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <div class="relative">
+                        <img src="./images/logo.png" alt="TriviaPur Logo" class="w-9 h-9">
+                    </div>
+                    <span
+                        class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                        TriviaPur
+                    </span>
+                </div>
+                <div class="flex space-x-8 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
+                        Privacy Policy
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
+                        Terms of Service
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-8 pt-8 border-t border-gray-800">
+                <p class="text-gray-500 text-sm">
+                    &copy; <span id="year"></span> TriviaPur. Crafted with <i class="fa-solid fa-heart"></i> for
+                    trivia enthusiasts worldwide by <a href="www.linkedin.com/in/madhav-dhall-053897310"
+                        target="_blank">Madhav
+                        Dhall.</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer ends  -->
+
+    <script src="./script/index.js"></script>
+</body>
+
+</html>
