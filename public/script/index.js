@@ -14,8 +14,6 @@ function showTab(tab) {
     document.getElementById('registerTab').classList.toggle('text-gray-300', tab !== 'register');
 }
 
-document.getElementById('year').innerHTML = new Date().getFullYear()
-
 // when the form is filled, post data and fetch the result
 
 // register form 

@@ -2,19 +2,19 @@ const updateProfile = (data) => {
     document.getElementById("username").innerText = data.username
     document.getElementById("avatar").innerText = data.username.charAt(0).toUpperCase();
 
-    document.getElementById("score").innerText = data.score
-    document.getElementById("currentStreak").innerText = data.currentStreak
-    document.getElementById("highestStreak").innerText = data.highestStreak
+    document.getElementById("score").innerText = data.score ? data.score : "0"
+    document.getElementById("currentStreak").innerText = data.currentStreak ? data.currentStreak : "0"
+    document.getElementById("highestStreak").innerText = data.highestStreak ? data.highestStreak : "0"
 
-    const totalAnswers = data.correctAnswers + data.wrongAnswers;
-    const percentage = totalAnswers > 0 ? (data.correctAnswers / totalAnswers) * 100 : 0;
-    document.getElementById("progessPercentage").style.width = `${percentage}%`;
-    document.getElementById('accuracy').innerText = `${percentage}%`;
+    const accuracyPercentage = data.accuracy ? `${data.accuracy}%` : "0%"
 
-    document.getElementById("correctAnswer").innerHTML = data.correctAnswers
-    document.getElementById("wrongAnswer").innerHTML = data.wrongAnswers
+    document.getElementById("progessPercentage").style.width = accuracyPercentage;
+    document.getElementById('accuracy').innerText = accuracyPercentage;
 
-    document.getElementById("rank").innerText = data.rank ? data.rank : "NA"
+    document.getElementById("correctAnswer").innerHTML = data.correctAnswers ? data.correctAnswers : "0"
+    document.getElementById("wrongAnswer").innerHTML = data.wrongAnswers ? data.wrongAnswers : "0"
+
+    document.getElementById("rank").innerText = data.rank > 0 ? data.rank : "NA"
 }
 
 // when the page loads first of all make a request to /api/question to check is user is logged in and is question available
